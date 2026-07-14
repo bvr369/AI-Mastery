@@ -28,6 +28,9 @@ export const ACHIEVEMENTS = [
   { id: 'code-runner', title: 'Code Runner', desc: 'Run playground code 10 times', xp: 25, icon: 'Terminal', check: (s) => (s.counters.playgroundRuns ?? 0) >= 10 },
   { id: 'prompt-smith', title: 'Prompt Smith', desc: 'Save 3 prompts in the Playground', xp: 20, icon: 'PenTool', check: (s) => (s.counters.promptsSaved ?? 0) >= 3 },
   { id: 'red-teamer', title: 'Red Teamer', desc: 'Defeat the prompt-injection sandbox', xp: 40, icon: 'ShieldAlert', check: (s) => (s.counters.injectionsDefeated ?? 0) >= 1 },
+  { id: 'python-bridge', title: 'Bilingual', desc: 'Complete all of Module 4 — Python for JS devs', xp: 120, icon: 'FileCode2', check: (s) => moduleDone(s, 'm4') },
+  { id: 'under-the-hood', title: 'Under the Hood', desc: 'Complete all of Module 5 — Inside the Transformer', xp: 150, icon: 'Cpu', check: (s) => moduleDone(s, 'm5') },
+  { id: 'demo-master', title: 'Simulator Savant', desc: 'Play with 15 interactive demos', xp: 60, icon: 'FlaskConical', check: (s) => (s.counters.demosUsed ?? 0) >= 15 },
 ]
 
 export const getAchievement = (id) => ACHIEVEMENTS.find((a) => a.id === id)

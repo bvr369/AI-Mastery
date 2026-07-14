@@ -11,18 +11,20 @@ npm run dev      # → http://localhost:5173
 
 No backend, no account, no API keys. All progress persists in `localStorage`.
 
-## What's live (Phases 1–2)
+## What's live (Phases 1–3)
 
 - **App shell** — sidebar, topbar, dark/light theme, global search (`Ctrl+K`)
 - **Dashboard** — level ring, XP, daily streak, stats, GitHub-style activity heatmap, module progress, achievements
 - **Roadmap** — all 12 modules / 96 lessons with phase-gated availability
 - **Lesson engine** — every lesson ships: explanation → animated diagram → interactive demo → runnable code playground → quiz (70% gates completion) → flashcards → summary, common mistakes, interview questions, real-world use cases, mini project, challenge, further reading
-- **17 lessons fully authored** — all of **Module 1** (Foundations, 8 lessons) and **Module 2** (Working with LLM APIs, 9 lessons), with 14 animated SVG diagrams and 14 bespoke interactive demos
+- **25 lessons fully authored** — **Module 1** (Foundations, 8), **Module 2** (Working with LLM APIs, 9), and **Module 3** (Prompt Engineering, 8), with 21 animated SVG diagrams and 19 bespoke interactive demos
+- **Prompt Playground** (`/playground`) — a standalone prompt lab on a shared simulated model: system + user editors, live temperature/top_p/max_tokens sliders, **side-by-side multi-model comparison** with streaming + per-panel TTFT/cost, saved-prompt library, run history, starter templates, and a "copy as curl" button for the real API
+- **Prompt-injection sandbox** — attack a secret-guarding bot (watch it leak), then toggle defenses and watch attacks bounce; teaches that only a code-level gate is a true guarantee
 - **Code playground** — a sandboxed (`iframe` + `postMessage`) JS runtime embedded in lessons, with a simulated `llm()` / `llm.stream()` API and mocked `fetch` for `api.anthropic.com` + `api.openai.com` — runnable AI code with **no API key**, plus console capture, timeout guard, and failure injection for the retry lessons
 - **Notes system** — markdown notes attached to lessons or free-standing, with a lesson-side drawer, a searchable `/notes` page, pin/delete, and `.md` export (stored separately so "reset progress" never wipes notes)
-- **Gamification** — XP with dedupe registry, 20 levels, 18 achievements (incl. module-completion, playground, and notes), streaks, toasts
+- **Gamification** — XP with dedupe registry, 20 levels, 20 achievements (incl. module-completion, playground, notes, red-teamer), streaks, toasts
 - **Spaced repetition** — SM-2-lite scheduler; graded flashcards resurface on the Review page
-- **Glossary** — 46 terms with in-lesson hover tooltips (`[[Term]]` syntax)
+- **Glossary** — 53 terms with in-lesson hover tooltips (`[[Term]]` syntax)
 - **Settings** — theme, JSON progress export, full reset, phase roadmap
 
 ## Architecture
@@ -32,11 +34,13 @@ src/
 ├── main.jsx / App.jsx        # entry, routing, theme sync
 ├── index.css                 # design tokens as semantic classes (.card, .btn-*, .txt-*)
 ├── lib/                      # pure helpers: dates, levels/XP curve, formatting
+│   └── mockModel.js          # browser-importable simulated LLM (powers the Playground)
 ├── store/
 │   ├── store.js              # Zustand + persist: XP, streaks, lessons, SRS cards,
 │   │                         #   achievements, dedupe-guarded awards
 │   ├── ui.js                 # ephemeral: toasts, command palette, mobile nav
-│   └── notes.js              # separate persisted store for markdown notes
+│   ├── notes.js              # separate persisted store for markdown notes
+│   └── playground.js         # saved prompts + run history for the Prompt Playground
 ├── data/
 │   ├── curriculum.js         # 12 modules / 96 lessons metadata (single source of truth)
 │   ├── glossary.js           # terms behind [[Term]] tooltips
@@ -77,8 +81,8 @@ src/
 |---|---|
 | **1 ✅** | Core app, dashboard, gamification, lesson engine, Module 1 start |
 | **2 ✅** | Full Module 1 (8 lessons) + Module 2 (9 lessons, LLM APIs) + in-lesson code playground + notes system |
-| 3 | Standalone Prompt Playground (compare models, save prompts) + Module 3 + prompt-injection simulator |
-| 4 | Python bridge + Inside the Transformer + attention/embedding/beam-search simulators |
+| **3 ✅** | Standalone Prompt Playground (model comparison, save prompts, templates) + Module 3 (8 lessons) + prompt-injection sandbox |
+| 4 | Python for JS devs + Inside the Transformer + attention/embedding/tokenizer/sampling simulators |
 | 5 | Embeddings + RAG modules + vector-search & RAG simulators + Projects hub (first 15) |
 | 6 | Agents + multi-agent modules + Agent Visualizer + injection/tool-calling sims + 15 projects |
 | 7 | Evals, fine-tuning, production modules + interview prep hub + 50+ projects total |

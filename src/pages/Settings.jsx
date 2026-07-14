@@ -7,8 +7,8 @@ import { downloadJSON, cn } from '../lib/utils'
 const PHASES = [
   ['Phase 1', 'Core app, dashboard, gamification, lesson engine, Module 1 start', 'live'],
   ['Phase 2', 'Full Module 1 (8 lessons) + Module 2 (9 lessons, LLM APIs) + in-lesson code playground + notes system', 'live'],
-  ['Phase 3', 'Standalone Prompt Playground (compare models, save prompts) + Module 3 + prompt-injection simulator', 'next'],
-  ['Phase 4', 'Python bridge + Inside the Transformer + attention/tokenizer/sampling simulators'],
+  ['Phase 3', 'Standalone Prompt Playground (compare models, save prompts, templates) + Module 3 (8 lessons) + prompt-injection sandbox', 'live'],
+  ['Phase 4', 'Python for JS devs + Inside the Transformer + attention/tokenizer/sampling simulators', 'next'],
   ['Phase 5', 'Embeddings + RAG modules + vector search simulator + Projects hub (first 15)'],
   ['Phase 6', 'Agents + multi-agent modules + Agent Visualizer + 15 more projects'],
   ['Phase 7', 'Evals, fine-tuning, production modules + interview prep hub + 50+ projects total'],

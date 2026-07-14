@@ -28,6 +28,35 @@ import DemoSampling from './demos/DemoSampling'
 import DemoStructured from './demos/DemoStructured'
 import DemoVision from './demos/DemoVision'
 import DemoBackoff from './demos/DemoBackoff'
+import DiagramPromptAnatomy from './diagrams/DiagramPromptAnatomy'
+import DiagramFewShot from './diagrams/DiagramFewShot'
+import DiagramCoT from './diagrams/DiagramCoT'
+import DiagramFormatControl from './diagrams/DiagramFormatControl'
+import DiagramTemplate from './diagrams/DiagramTemplate'
+import DiagramInjection from './diagrams/DiagramInjection'
+import DiagramPromptEval from './diagrams/DiagramPromptEval'
+import DemoPromptBuilder from './demos/DemoPromptBuilder'
+import DemoFewShot from './demos/DemoFewShot'
+import DemoCoT from './demos/DemoCoT'
+import DemoInjectionSandbox from './demos/DemoInjectionSandbox'
+import DemoPromptAB from './demos/DemoPromptAB'
+// Module 4: Python for JS devs
+import DiagramJSPyMap from './diagrams/DiagramJSPyMap'
+import DiagramNpmPip from './diagrams/DiagramNpmPip'
+import DiagramPyAsync from './diagrams/DiagramPyAsync'
+import DemoJSPyTranslator from './demos/DemoJSPyTranslator'
+import DemoComprehension from './demos/DemoComprehension'
+import DemoPyDataStructures from './demos/DemoPyDataStructures'
+// Module 5: Inside the Transformer
+import DiagramWordVector from './diagrams/DiagramWordVector'
+import DiagramTransformerArch from './diagrams/DiagramTransformerArch'
+import DiagramKVCache from './diagrams/DiagramKVCache'
+import DiagramScaling from './diagrams/DiagramScaling'
+import DemoEmbeddingMap from './demos/DemoEmbeddingMap'
+import DemoAttentionViz from './demos/DemoAttentionViz'
+import DemoBPEBuilder from './demos/DemoBPEBuilder'
+import DemoSamplingRace from './demos/DemoSamplingRace'
+import DemoTransformerTour from './demos/DemoTransformerTour'
 
 export const DIAGRAMS = {
   'genai-vs-traditional': DiagramGenAI,
@@ -44,6 +73,20 @@ export const DIAGRAMS = {
   'structured-loop': DiagramStructuredLoop,
   'backoff-timeline': DiagramBackoff,
   'chat-architecture': DiagramChatArch,
+  'prompt-anatomy': DiagramPromptAnatomy,
+  'few-shot': DiagramFewShot,
+  'chain-of-thought': DiagramCoT,
+  'format-control': DiagramFormatControl,
+  'prompt-template': DiagramTemplate,
+  'injection-attack': DiagramInjection,
+  'prompt-eval': DiagramPromptEval,
+  'js-py-map': DiagramJSPyMap,
+  'npm-pip-map': DiagramNpmPip,
+  'py-async-model': DiagramPyAsync,
+  'word-to-vector': DiagramWordVector,
+  'transformer-arch': DiagramTransformerArch,
+  'kv-cache': DiagramKVCache,
+  'scaling-curve': DiagramScaling,
 }
 
 export const DEMOS = {
@@ -61,4 +104,17 @@ export const DEMOS = {
   'structured-retry': DemoStructured,
   'vision-payload': DemoVision,
   'backoff-sim': DemoBackoff,
+  'prompt-builder': DemoPromptBuilder,
+  'few-shot-classifier': DemoFewShot,
+  'cot-reveal': DemoCoT,
+  'injection-sandbox': DemoInjectionSandbox,
+  'prompt-ab': DemoPromptAB,
+  'js-py-translator': DemoJSPyTranslator,
+  'comprehension-builder': DemoComprehension,
+  'py-data-structures': DemoPyDataStructures,
+  'embedding-map': DemoEmbeddingMap,
+  'attention-viz': DemoAttentionViz,
+  'bpe-builder': DemoBPEBuilder,
+  'sampling-race': DemoSamplingRace,
+  'transformer-tour': DemoTransformerTour,
 }

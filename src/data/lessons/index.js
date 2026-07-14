@@ -17,6 +17,14 @@ import m2l6 from './m2-l6'
 import m2l7 from './m2-l7'
 import m2l8 from './m2-l8'
 import m2l9 from './m2-l9'
+import m3l1 from './m3-l1'
+import m3l2 from './m3-l2'
+import m3l3 from './m3-l3'
+import m3l4 from './m3-l4'
+import m3l5 from './m3-l5'
+import m3l6 from './m3-l6'
+import m3l7 from './m3-l7'
+import m3l8 from './m3-l8'
 
 export const LESSON_CONTENT = {
   'm1-l1': m1l1,
@@ -36,6 +44,14 @@ export const LESSON_CONTENT = {
   'm2-l7': m2l7,
   'm2-l8': m2l8,
   'm2-l9': m2l9,
+  'm3-l1': m3l1,
+  'm3-l2': m3l2,
+  'm3-l3': m3l3,
+  'm3-l4': m3l4,
+  'm3-l5': m3l5,
+  'm3-l6': m3l6,
+  'm3-l7': m3l7,
+  'm3-l8': m3l8,
 }
 
 /**
