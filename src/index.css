@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Design tokens as semantic classes.
+   Components use these instead of repeating light+dark variants:
+   .txt-1  primary text   .txt-2 secondary   .txt-3 muted
+   .card   surface        .btn-* buttons     .chip-* tags
+   ============================================================ */
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100;
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  ::selection {
+    @apply bg-brand-500/30;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(113 113 122 / 0.4) transparent;
+  }
+  *::-webkit-scrollbar { width: 8px; height: 8px; }
+  *::-webkit-scrollbar-thumb { @apply rounded-full bg-zinc-400/40 dark:bg-zinc-600/40; }
+  *::-webkit-scrollbar-track { background: transparent; }
+}
+
+@layer components {
+  .txt-1 { @apply text-zinc-900 dark:text-zinc-100; }
+  .txt-2 { @apply text-zinc-600 dark:text-zinc-400; }
+  .txt-3 { @apply text-zinc-500 dark:text-zinc-500; }
+
+  .card {
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-card dark:border-zinc-800 dark:bg-zinc-900/70;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-400/50 hover:shadow-glow;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-glow hover:brightness-110 active:scale-[.98];
+  }
+  .btn-ghost {
+    @apply btn text-zinc-600 hover:bg-zinc-200/70 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/70 dark:hover:text-zinc-100;
+  }
+  .btn-outline {
+    @apply btn border border-zinc-300 text-zinc-700 hover:border-brand-400 hover:text-brand-600 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-brand-500 dark:hover:text-brand-300;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-medium;
+  }
+  .chip-brand { @apply chip bg-brand-500/15 text-brand-600 dark:text-brand-300; }
+  .chip-green { @apply chip bg-emerald-500/15 text-emerald-600 dark:text-emerald-400; }
+  .chip-amber { @apply chip bg-amber-500/15 text-amber-600 dark:text-amber-400; }
+  .chip-rose  { @apply chip bg-rose-500/15 text-rose-600 dark:text-rose-400; }
+  .chip-zinc  { @apply chip bg-zinc-500/15 text-zinc-600 dark:text-zinc-400; }
+
+  .input {
+    @apply w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-400/30 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100;
+  }
+
+  .kbd {
+    @apply rounded-md border border-zinc-300 bg-zinc-100 px-1.5 py-0.5 font-mono text-[10px] text-zinc-500 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-200/60 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/60 dark:hover:text-zinc-100;
+  }
+  .nav-item-active {
+    @apply bg-brand-500/10 text-brand-700 hover:bg-brand-500/15 hover:text-brand-700 dark:text-brand-300 dark:hover:text-brand-200;
+  }
+
+  .grad-text {
+    @apply bg-gradient-to-r from-brand-500 to-indigo-400 bg-clip-text text-transparent;
+  }
+
+  /* Prose-ish defaults inside lesson bodies */
+  .lesson-p { @apply leading-relaxed txt-2 [&_strong]:txt-1 [&_strong]:font-semibold; }
+  .lesson-p code, .inline-code {
+    @apply rounded-md bg-zinc-200/70 px-1.5 py-0.5 font-mono text-[0.85em] text-brand-700 dark:bg-zinc-800 dark:text-brand-300;
+  }
+
+  /* Glossary term with hover popover */
+  .glossary-term {
+    @apply relative cursor-pointer border-b border-dashed border-brand-400/60 font-medium text-brand-600 dark:text-brand-300;
+  }
+  .glossary-pop {
+    @apply invisible absolute bottom-full left-1/2 z-50 mb-2 w-64 -translate-x-1/2 rounded-xl border border-zinc-200 bg-white p-3 text-left text-xs leading-relaxed text-zinc-600 opacity-0 shadow-xl transition-all duration-150 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300;
+  }
+  .glossary-term:hover .glossary-pop {
+    @apply visible opacity-100;
+  }
+
+  /* Flashcard 3D flip */
+  .flip-scene { perspective: 1200px; }
+  .flip-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+  }
+  .flip-inner.flipped { transform: rotateY(180deg); }
+  .flip-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .flip-back { transform: rotateY(180deg); }
+}

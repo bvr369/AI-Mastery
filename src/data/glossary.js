@@ -1,0 +1,56 @@
+// Glossary terms. Referenced in lesson text via [[Term]] — rendered as hoverable definitions.
+
+export const GLOSSARY = [
+  { term: 'LLM', full: 'Large Language Model', def: 'A neural network trained on massive amounts of text to predict the next token. Claude, GPT, Gemini, and Llama are LLMs.', tags: ['core'] },
+  { term: 'Token', def: 'The unit LLMs read and write — usually a word chunk (~4 characters of English). "understanding" might be under + stand + ing.', tags: ['core'] },
+  { term: 'Prompt', def: 'The input you send to a model. Everything the model sees — instructions, context, examples, and the user message.', tags: ['core'] },
+  { term: 'System Prompt', def: 'Hidden instructions that set a model\'s role, rules, and personality before the user says anything. Like a config file written in English.', tags: ['core', 'api'] },
+  { term: 'Context Window', def: 'The maximum number of tokens a model can consider at once — its working memory. Everything outside it does not exist for the model.', tags: ['core'] },
+  { term: 'Inference', def: 'Running a trained model to get output. Training builds the model; inference uses it. You pay per inference.', tags: ['core'] },
+  { term: 'Parameters', def: 'The learned numbers (weights) inside a model. "70B model" = 70 billion parameters. More generally means smarter but slower and pricier.', tags: ['core'] },
+  { term: 'Weights', def: 'Another name for a model\'s parameters — the actual numbers stored in the model file. "Open weights" = you can download them.', tags: ['core'] },
+  { term: 'Temperature', def: 'A sampling knob (usually 0–1). Low = predictable, focused output. High = varied, creative, riskier output.', tags: ['api'] },
+  { term: 'top_p', full: 'Nucleus sampling', def: 'Sampling knob that limits choices to the smallest set of tokens whose probabilities add up to p. An alternative/companion to temperature.', tags: ['api'] },
+  { term: 'Sampling', def: 'How a model picks the next token from its probability distribution — greedy, temperature-based, top-k, top-p, etc.', tags: ['core'] },
+  { term: 'Hallucination', def: 'When a model states false things confidently. Not a bug in the code — a natural side effect of predicting plausible text.', tags: ['core'] },
+  { term: 'Embedding', def: 'A list of numbers (vector) representing meaning. Similar meanings → nearby vectors. Powers semantic search and RAG.', tags: ['rag'] },
+  { term: 'Vector Database', def: 'A database optimized for storing embeddings and finding the nearest ones fast. Pinecone, pgvector, Chroma, Qdrant.', tags: ['rag'] },
+  { term: 'RAG', full: 'Retrieval-Augmented Generation', def: 'Fetch relevant documents first, paste them into the prompt, then ask the model. Gives models your knowledge without retraining.', tags: ['rag'] },
+  { term: 'Chunking', def: 'Splitting documents into pieces before embedding them. Chunk size and boundaries strongly affect retrieval quality.', tags: ['rag'] },
+  { term: 'Fine-tuning', def: 'Continuing a model\'s training on your own examples to change its behavior, style, or skills.', tags: ['training'] },
+  { term: 'Pretraining', def: 'The first, massive training stage: learning to predict the next token across trillions of tokens of text.', tags: ['training'] },
+  { term: 'RLHF', full: 'Reinforcement Learning from Human Feedback', def: 'A training stage where human preferences teach the model to be helpful and safe, not just statistically likely.', tags: ['training'] },
+  { term: 'Transformer', def: 'The neural network architecture behind modern LLMs, built around the attention mechanism. Introduced in 2017 ("Attention Is All You Need").', tags: ['internals'] },
+  { term: 'Attention', def: 'The mechanism that lets each token look at every other token and decide what\'s relevant. The core idea inside transformers.', tags: ['internals'] },
+  { term: 'Agent', def: 'An LLM in a loop with tools: it reasons, takes an action (calls a tool), observes the result, and repeats until the task is done.', tags: ['agents'] },
+  { term: 'Tool Calling', def: 'Letting a model invoke your functions/APIs by returning structured JSON instead of prose. Also called function calling.', tags: ['agents'] },
+  { term: 'Function Calling', def: 'Same as tool calling: the model outputs a function name + JSON arguments, your code runs it, and returns the result to the model.', tags: ['agents'] },
+  { term: 'Prompt Injection', def: 'An attack where malicious text in the input (a webpage, email, document) hijacks the model\'s instructions. The SQL injection of the AI era.', tags: ['security'] },
+  { term: 'Chain-of-Thought', def: 'Prompting (or training) a model to reason step-by-step before answering — dramatically improves accuracy on hard tasks.', tags: ['prompting'] },
+  { term: 'Few-shot', def: 'Including a handful of worked examples in your prompt so the model learns the pattern in-context.', tags: ['prompting'] },
+  { term: 'Zero-shot', def: 'Asking a model to do a task with instructions only — no examples.', tags: ['prompting'] },
+  { term: 'Streaming', def: 'Receiving a model\'s output token-by-token as it generates, instead of waiting for the full response. Essential for chat UX.', tags: ['api'] },
+  { term: 'Latency', def: 'How long a response takes. Key AI metric: TTFT (time to first token) — how fast the answer starts appearing.', tags: ['production'] },
+  { term: 'Quantization', def: 'Shrinking a model by storing weights in fewer bits (e.g. 4-bit instead of 16). Smaller and faster, slightly less accurate.', tags: ['training'] },
+  { term: 'Multimodal', def: 'A model that handles more than text — images, audio, video — as input, output, or both.', tags: ['core'] },
+  { term: 'GPU', full: 'Graphics Processing Unit', def: 'The chip AI runs on. Thousands of cores doing parallel math — perfect for the matrix multiplications inside neural networks.', tags: ['internals'] },
+  { term: 'Grounding', def: 'Tying a model\'s answer to provided sources (documents, search results) so claims can be verified and cited.', tags: ['rag'] },
+  { term: 'SSE', full: 'Server-Sent Events', def: 'The HTTP streaming mechanism most LLM APIs use to deliver tokens as they generate — a long-lived response your code reads chunk by chunk.', tags: ['api'] },
+  { term: 'Rate Limit', def: 'The provider-enforced cap on requests or tokens per minute. Exceed it and you get HTTP 429 — production code must expect and handle this.', tags: ['api', 'production'] },
+  { term: 'Exponential Backoff', def: 'Retry strategy: wait 1s, then 2s, then 4s… (plus random jitter) after failures. The standard cure for 429s and transient errors.', tags: ['production'] },
+  { term: 'TTFT', full: 'Time To First Token', def: 'How long before the first token of a response arrives. The latency metric users actually feel — streaming optimizes it.', tags: ['production'] },
+  { term: 'Structured Output', def: 'Making a model return machine-parseable data (usually JSON matching a schema) instead of prose. Essential for connecting models to code.', tags: ['api'] },
+  { term: 'Max Tokens', def: 'The cap on how many tokens a model may generate for one response. A cost/safety brake — hitting it truncates the answer mid-sentence.', tags: ['api'] },
+  { term: 'Stop Sequence', def: 'A string that halts generation when the model produces it. Useful for bounding output formats.', tags: ['api'] },
+  { term: 'Base Model', def: 'A model fresh out of pretraining: brilliant autocomplete, no assistant manners. It continues text; it does not "answer" you.', tags: ['training'] },
+  { term: 'SFT', full: 'Supervised Fine-Tuning', def: 'Training stage where a base model learns from example conversations to behave like an assistant (instruction following).', tags: ['training'] },
+  { term: 'Reward Model', def: 'A model trained on human preference rankings, used during RLHF to score outputs so the main model learns what people prefer.', tags: ['training'] },
+  { term: 'Open Weights', def: 'Models whose parameter files you can download and run yourself (Llama, Mistral, Qwen). Contrast with API-only closed models.', tags: ['core'] },
+  { term: 'top-k', def: 'Sampling knob that keeps only the k highest-probability tokens before picking. A blunt cousin of top_p.', tags: ['api'] },
+]
+
+const slugify = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+
+export const GLOSSARY_MAP = Object.fromEntries(GLOSSARY.map((g) => [g.term.toLowerCase(), { ...g, slug: slugify(g.term) }]))
+
+export const getTerm = (name) => GLOSSARY_MAP[name.toLowerCase()]
