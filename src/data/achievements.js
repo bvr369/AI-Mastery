@@ -31,6 +31,8 @@ export const ACHIEVEMENTS = [
   { id: 'python-bridge', title: 'Bilingual', desc: 'Complete all of Module 4 — Python for JS devs', xp: 120, icon: 'FileCode2', check: (s) => moduleDone(s, 'm4') },
   { id: 'under-the-hood', title: 'Under the Hood', desc: 'Complete all of Module 5 — Inside the Transformer', xp: 150, icon: 'Cpu', check: (s) => moduleDone(s, 'm5') },
   { id: 'demo-master', title: 'Simulator Savant', desc: 'Play with 15 interactive demos', xp: 60, icon: 'FlaskConical', check: (s) => (s.counters.demosUsed ?? 0) >= 15 },
+  { id: 'builder', title: 'Builder', desc: 'Start your first guided project', xp: 20, icon: 'Hammer', check: (s) => (s.counters.projectsStarted ?? 0) >= 1 },
+  { id: 'shipped', title: 'Shipped It', desc: 'Complete a guided project', xp: 100, icon: 'Rocket', check: (s) => (s.counters.projectsCompleted ?? 0) >= 1 },
 ]
 
 export const getAchievement = (id) => ACHIEVEMENTS.find((a) => a.id === id)

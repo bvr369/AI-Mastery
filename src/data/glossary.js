@@ -71,6 +71,15 @@ export const GLOSSARY = [
   { term: 'Mixture of Experts', full: 'MoE', def: 'An architecture with many "expert" sub-networks where only a few activate per token — huge total capacity at a fraction of the compute per token.', tags: ['internals'] },
   { term: 'Virtual Environment', full: 'venv', def: 'A per-project isolated Python dependency folder you "activate" — the equivalent of node_modules you switch into. Keeps each project\'s packages separate.', tags: ['reference'] },
   { term: 'Jupyter Notebook', def: 'An interactive document of code + markdown cells with persistent state — the AI engineer\'s prototyping scratchpad (Colab gives free GPUs). Great for exploration, risky for production due to out-of-order execution.', tags: ['reference'] },
+  { term: 'Semantic Search', def: 'Searching by MEANING rather than keywords: embed the query, find the nearest document vectors by cosine similarity, return them ranked. The retrieval half of RAG.', tags: ['rag'] },
+  { term: 'ANN', full: 'Approximate Nearest Neighbor', def: 'Index structures (e.g. HNSW) that find near-neighbors in a vector space without comparing against every vector — trading a tiny bit of recall for huge speed. How vector DBs scale to millions.', tags: ['rag'] },
+  { term: 'Reranking', def: 'A second, more precise pass: retrieve many candidate chunks cheaply, then a cross-encoder reranker scores each query-chunk pair to reorder the top few. The biggest RAG quality lever after chunking.', tags: ['rag'] },
+  { term: 'Hybrid Search', def: 'Combining keyword search (BM25 — great for exact terms) with vector search (great for paraphrases), fusing the scores. The modern retrieval default.', tags: ['rag'] },
+  { term: 'BM25', def: 'The classic keyword-ranking algorithm — scores documents by term frequency and rarity. Strong at exact terms, names, and codes where embeddings blur; paired with vectors in hybrid search.', tags: ['rag'] },
+  { term: 'Precision & Recall', def: 'Retrieval metrics. Precision@k = of the chunks retrieved, how many were relevant. Recall@k = of the relevant chunks, how many were retrieved. Raising k trades precision for recall.', tags: ['rag', 'production'] },
+  { term: 'Faithfulness', def: 'Whether a generated answer sticks to the retrieved context (no fabrication beyond the sources). A core RAG-answer quality metric, often measured with LLM-as-judge.', tags: ['rag'] },
+  { term: 'HyDE', full: 'Hypothetical Document Embeddings', def: 'A query-rewriting trick: have the model draft a hypothetical answer, embed THAT, and retrieve with it — often finding better matches than the raw question.', tags: ['rag'] },
+  { term: 'Agentic RAG', def: 'RAG where the model itself decides WHEN and WHAT to retrieve, in a loop — retrieving, reasoning, and retrieving again as needed. Bridges retrieval and agents.', tags: ['rag', 'agents'] },
 ]
 
 const slugify = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-')

@@ -24,7 +24,7 @@ const SECTIONS = [
     label: 'Build',
     items: [
       { to: '/playground', icon: SlidersHorizontal, label: 'Playground' },
-      { to: '/projects', icon: Puzzle, label: 'Projects', soon: 5 },
+      { to: '/projects', icon: Puzzle, label: 'Projects' },
     ],
   },
   {

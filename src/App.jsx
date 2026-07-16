@@ -10,6 +10,7 @@ import Notes from './pages/Notes'
 import Review from './pages/Review'
 import Settings from './pages/Settings'
 import Playground from './pages/Playground'
+import Projects from './pages/Projects'
 import ComingSoon from './pages/ComingSoon'
 
 function ScrollToTop() {
@@ -43,7 +44,7 @@ export default function App() {
           <Route path="/notes" element={<Notes />} />
           <Route path="/review" element={<Review />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/projects" element={<ComingSoon feature="projects" />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/playground" element={<Playground />} />
           <Route path="/mentor" element={<ComingSoon feature="mentor" />} />
           <Route path="/interview" element={<ComingSoon feature="interview" />} />

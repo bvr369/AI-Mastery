@@ -13,7 +13,7 @@ const initialState = {
   cards: {},               // { cardId: { reps, ease, interval, due, lessonId } }  (SM-2-lite)
   awarded: {},             // dedupe registry so XP is never double-granted
   achievements: [],        // earned achievement ids
-  counters: { lessonsCompleted: 0, perfectQuizzes: 0, cardsReviewed: 0, demosUsed: 0, playgroundRuns: 0, notesCreated: 0, promptsSaved: 0, injectionsDefeated: 0 },
+  counters: { lessonsCompleted: 0, perfectQuizzes: 0, cardsReviewed: 0, demosUsed: 0, playgroundRuns: 0, notesCreated: 0, promptsSaved: 0, injectionsDefeated: 0, projectsStarted: 0, projectsCompleted: 0 },
   flags: {},               // one-off facts for achievements (nightOwl, earlyBird)
   settings: { theme: 'dark' },
 }
