@@ -57,6 +57,22 @@ import DemoAttentionViz from './demos/DemoAttentionViz'
 import DemoBPEBuilder from './demos/DemoBPEBuilder'
 import DemoSamplingRace from './demos/DemoSamplingRace'
 import DemoTransformerTour from './demos/DemoTransformerTour'
+// Module 6: Embeddings & Semantic Search
+import DiagramEmbedPipeline from './diagrams/DiagramEmbedPipeline'
+import DiagramVectorIndex from './diagrams/DiagramVectorIndex'
+import DemoVectorSearch from './demos/DemoVectorSearch'
+import DemoChunkingLab from './demos/DemoChunkingLab'
+import DemoCosineSim from './demos/DemoCosineSim'
+import DemoHybridSearch from './demos/DemoHybridSearch'
+// Module 7: RAG
+import DiagramRAGArch from './diagrams/DiagramRAGArch'
+import DiagramRAGDecision from './diagrams/DiagramRAGDecision'
+import DiagramAdvancedRAG from './diagrams/DiagramAdvancedRAG'
+import DiagramProductionRAG from './diagrams/DiagramProductionRAG'
+import DemoRAGPipeline from './demos/DemoRAGPipeline'
+import DemoRAGPlayground from './demos/DemoRAGPlayground'
+import DemoRetrievalEval from './demos/DemoRetrievalEval'
+import DemoCitations from './demos/DemoCitations'
 
 export const DIAGRAMS = {
   'genai-vs-traditional': DiagramGenAI,
@@ -87,6 +103,12 @@ export const DIAGRAMS = {
   'transformer-arch': DiagramTransformerArch,
   'kv-cache': DiagramKVCache,
   'scaling-curve': DiagramScaling,
+  'embed-pipeline': DiagramEmbedPipeline,
+  'vector-index': DiagramVectorIndex,
+  'rag-architecture': DiagramRAGArch,
+  'rag-decision': DiagramRAGDecision,
+  'advanced-rag': DiagramAdvancedRAG,
+  'production-rag': DiagramProductionRAG,
 }
 
 export const DEMOS = {
@@ -117,4 +139,12 @@ export const DEMOS = {
   'bpe-builder': DemoBPEBuilder,
   'sampling-race': DemoSamplingRace,
   'transformer-tour': DemoTransformerTour,
+  'vector-search-viz': DemoVectorSearch,
+  'chunking-lab': DemoChunkingLab,
+  'cosine-playground': DemoCosineSim,
+  'hybrid-search': DemoHybridSearch,
+  'rag-pipeline-sim': DemoRAGPipeline,
+  'rag-playground': DemoRAGPlayground,
+  'retrieval-eval': DemoRetrievalEval,
+  'citation-grounding': DemoCitations,
 }

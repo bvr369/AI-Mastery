@@ -8,9 +8,9 @@ const PHASES = [
   ['Phase 1', 'Core app, dashboard, gamification, lesson engine, Module 1 start', 'live'],
   ['Phase 2', 'Full Module 1 (8 lessons) + Module 2 (9 lessons, LLM APIs) + in-lesson code playground + notes system', 'live'],
   ['Phase 3', 'Standalone Prompt Playground (compare models, save prompts, templates) + Module 3 (8 lessons) + prompt-injection sandbox', 'live'],
-  ['Phase 4', 'Python for JS devs + Inside the Transformer + attention/tokenizer/sampling simulators', 'next'],
-  ['Phase 5', 'Embeddings + RAG modules + vector search simulator + Projects hub (first 15)'],
-  ['Phase 6', 'Agents + multi-agent modules + Agent Visualizer + 15 more projects'],
+  ['Phase 4', 'Module 4 (Python for JS devs, 7 lessons) + Module 5 (Inside the Transformer, 8 lessons) + embeddings / attention / BPE / sampling simulators', 'live'],
+  ['Phase 5', 'Module 6 (Embeddings & Semantic Search, 7 lessons) + Module 7 (RAG, 8 lessons) + vector-search / chunking / RAG-pipeline simulators + Projects Hub (12 builds)', 'live'],
+  ['Phase 6', 'Agents + multi-agent modules + Agent Visualizer + more projects', 'next'],
   ['Phase 7', 'Evals, fine-tuning, production modules + interview prep hub + 50+ projects total'],
   ['Phase 8', 'AI Mentor, deep analytics, knowledge graph, mock interviews, polish'],
 ]
